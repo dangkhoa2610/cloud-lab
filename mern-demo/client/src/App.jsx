@@ -67,8 +67,8 @@ function App() {
 
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h2>{editingId ? "Cập Nhật Sinh Viên" : "Thêm Sinh Viên Mới"}</h2>
-      
+      <h1>Chào Mừng đến với Ứng Dụng Quản Lý Sinh Viên</h1>
+      <h2>{editingId ? "Cập Nhật Sinh Viên" : "Thêm Sinh Viên Mới"}</h2>  
       {/* Form nhập dữ liệu */}
       <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
         <input name="studentId" placeholder="MSSV" value={formData.studentId} onChange={handleChange} required />
@@ -77,7 +77,6 @@ function App() {
         <button type="submit">{editingId ? "Lưu Cập Nhật" : "Thêm"}</button>
         {editingId && <button type="button" onClick={() => { setEditingId(null); setFormData({ studentId: '', name: '', email: '' }); }}>Hủy</button>}
       </form>
-
       {/* Hiển thị danh sách */}
       <h2>Danh Sách Sinh Viên</h2>
       <ul>
