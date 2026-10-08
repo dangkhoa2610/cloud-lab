@@ -1,19 +1,19 @@
 version: '3.8'
+
 services:
-  # Khai báo Service backend
+  # Câu 51 & 53 & 55: Khai báo Backend Service
   backend:
-    build: ./mern-demo/server
-    # Cấu hình Port cho Backend
+    image: trangdangkhoa/mern-backend:1.0
     ports:
       - "5000:5000"
-    # Cấu hình biến môi trường
     environment:
+      - PORT=5000
       - MONGO_URI=mongodb+srv://cloud-lab:cloudlab123@cluster0.dddq94r.mongodb.net/cloud-lab?appName=Cluster0
       - MONGODB_URI=mongodb+srv://cloud-lab:cloudlab123@cluster0.dddq94r.mongodb.net/cloud-lab?appName=Cluster0
-  # Khai báo Service frontend
+
+  # Câu 52 & 54: Khai báo Frontend Service
   frontend:
-    build: ./mern-demo/client
-    # Cấu hình Port cho Frontend
+    image: trangdangkhoa/mern-frontend:2.0
     ports:
       - "3000:3000"
     depends_on:

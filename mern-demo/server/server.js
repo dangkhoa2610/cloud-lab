@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 console.log(process.env.MONGODB_URI);
 const express = require("express");
 const mongoose = require("mongoose");
@@ -18,6 +18,29 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
+
+
+//sửa lab05
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://localhost:3000'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
+      callback(null, true);
+    } else {
+      callback(null, true); // Hoặc truyền origin cụ thể
+    }
+  },
+  credentials: true
+}));
+
+app.use(express.json());
+
+
 
 //cau36
 app.get("/api/students", async (req, res) => {
